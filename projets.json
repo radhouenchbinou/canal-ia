@@ -1,0 +1,17 @@
+{
+  "api": {
+    "dossier": "~/code/mon-api",
+    "base": "main",
+    "role": "service backend : routes, base de données, authentification"
+  },
+  "web": {
+    "dossier": "~/code/mon-web",
+    "base": "main",
+    "role": "application web : écrans et composants"
+  },
+  "outils": {
+    "dossier": "~/code/mes-outils",
+    "base": "main",
+    "role": "scripts et outils internes"
+  }
+}
