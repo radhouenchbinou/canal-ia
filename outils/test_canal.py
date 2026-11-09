@@ -13,7 +13,7 @@ class CanalTest(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.racine = Path(self.tmp.name)
         (self.racine / "demandes").mkdir()
-        (self.racine / "projets.json").write_text(json.dumps({"ai-core": {}, "ba": {}, "outils": {}}))
+        (self.racine / "projets.json").write_text(json.dumps({"api": {}, "web": {}, "outils": {}}))
 
     def tearDown(self):
         self.tmp.cleanup()
@@ -25,7 +25,7 @@ class CanalTest(unittest.TestCase):
         return code, sortie.getvalue().strip()
 
     def nouveau(self, titre, **opts):
-        args = ["nouveau", "--de", opts.get("de", "ba"), "--pour", opts.get("pour", "ai-core"),
+        args = ["nouveau", "--de", opts.get("de", "web"), "--pour", opts.get("pour", "api"),
                 "--titre", titre, "--jour", "2026-11-05"]
         for cle in ("priorite", "statut", "depend_de"):
             if cle in opts:
@@ -88,7 +88,7 @@ class CanalTest(unittest.TestCase):
         self.assertEqual([d["titre"] for d in canal.prets(self.racine)], ["Suite"])
         self.assertEqual(self.lancer("lister")[1].count("\n"), 0, "lister masque les archivées")
         self.assertIn("Base", self.lancer("lister", "--archives")[1])
-        self.assertEqual(Path(self.lancer("nouveau", "--de", "ba", "--pour", "ai-core", "--titre", "Trois",
+        self.assertEqual(Path(self.lancer("nouveau", "--de", "web", "--pour", "api", "--titre", "Trois",
                                           "--jour", "2026-11-05")[1]).name, "2026-11-05-003-trois.md")
         texte = (self.racine / "ETAT.md").read_text()
         self.assertNotIn("## faite", texte)

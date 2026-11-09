@@ -2,8 +2,8 @@
 """Outil du canal de demandes entre agents.
 
 Usage :
-  canal.py nouveau --de ba --pour ai-core --titre "..." [--priorite haute] [--statut proposee] [--depend-de ID,ID]
-  canal.py lister [--statut nouvelle] [--pour ai-core] [--archives]
+  canal.py nouveau --de web --pour api --titre "..." [--priorite haute] [--statut proposee] [--depend-de ID,ID]
+  canal.py lister [--statut nouvelle] [--pour api] [--archives]
   canal.py prets                  demandes `nouvelle` dont toutes les dépendances sont faites
   canal.py maj ID [--statut S] [--branche B] [--commit SHA]
   canal.py verifier               contrôle de tous les fichiers (code retour 1 si erreur)

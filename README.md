@@ -1,6 +1,6 @@
 # Canal de demandes entre agents
 
-Un agent qui travaille sur un projet (`ai-core`, `ba`, `front`, `mcp` : voir `projets.json`) et qui a besoin d'une
+Un agent qui travaille sur un projet (`api`, `web`, `web`, `outils` : voir `projets.json`) et qui a besoin d'une
 évolution dans **un autre** projet ne la code pas lui-même : il écrit une demande ici. L'agent maître (session
 ouverte sur ce dossier, voir `CLAUDE.md`) lance alors un agent dans le projet concerné pour la traiter.
 
@@ -56,7 +56,7 @@ Changer un statut : `canal.py maj <id> --statut faite --branche canal/<id> --com
 
 1. `canal.py maj <id> --statut en-cours --branche <ta branche>` puis commit dans `canal-ia`.
 2. Travailler **dans le projet cible uniquement**, en suivant son `CLAUDE.md` (ses règles priment : par exemple
-   une décision d'architecture dans `ai-core` attend la validation du responsable → statut `bloquee`).
+   une décision d'architecture dans `api` attend la validation du responsable → statut `bloquee`).
 3. Tests du projet au vert, commit sur ta branche. **Ne jamais** fusionner dans la branche de base, pousser, déployer.
 4. Remplir `## Réponse` : ce qui est fait, ADR, tests lancés et résultat, ce que l'émetteur doit faire ensuite.
 5. Si l'émetteur doit s'aligner (nouveau champ à afficher, écran à faire…) : créer la demande retour
